@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { BiArrowToRight } from 'react-icons/bi';
+import { HiArrowRight } from 'react-icons/hi';
 
 export interface IServiceCardProps {
     title: string;
@@ -15,9 +15,9 @@ function ServiceCard({ title, description, actionLink, actionText = 'Lets work t
             <h3 className="text-2xl text-white font-semibold">{title}</h3>
             <p className="text-light text-base my-[45px]">{description}</p>
             <Link className="font-semibold text-base" href={actionLink || '#'}>
-                <a>
+                <a className="flex items-center">
                     {actionText}
-                    <BiArrowToRight />
+                    <HiArrowRight className="ml-2" />
                 </a>
             </Link>
         </div>

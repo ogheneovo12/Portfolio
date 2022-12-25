@@ -11,17 +11,20 @@ const services: (IServiceCardProps & { className?: string })[] = [
         description:
             '3+ years as a frontend developer, skilled in pixel-perfect design and seamless UX. Proficient in ReactJS, NextJS, Grommet UI, Tailwind, Chakra UI, Ant Design, Sass, TypeScript, JavaScript, HTML5, CSS3, GraphQL Client. Expertise in setting up frontend project deployment pipelines."            ',
         className: 'after_box top-left',
+        actionLink: '/#contact',
     },
     {
         title: 'Back-end Development',
         description:
             'I have extensive experience working with Node.js-based backend solutions, including CRUD APIs, documentation, media services, and fintech/Web3 projects. Proficient in Express.js, NestJS, Docker, Mongoose, MySQL, Postgres, MongoDB, and both monolithic and distributed/microservices architectures',
+        actionLink: '/#contact',
     },
     {
         title: 'Team Lead',
         description:
             'As a team lead throughout my career, I have fostered collaboration and clear communication of business objectives among team members. I have also motivated and supported team members, and provided resources and guidance to address any learning or skill gaps.',
         className: 'after_box bottom-right',
+        actionLink: '/#contact',
     },
 ];
 export default function ServiceSection() {

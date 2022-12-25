@@ -9,7 +9,7 @@ const services: (IServiceCardProps & { className?: string })[] = [
     {
         title: 'Front-end Development',
         description:
-            '5+ years as a frontend developer, skilled in pixel-perfect design and seamless UX. Proficient in ReactJS, NextJS, Grommet UI, Tailwind, Chakra UI, Ant Design, Sass, TypeScript, JavaScript, HTML5, CSS3, GraphQL Client. Expertise in setting up frontend project deployment pipelines."            ',
+            '3+ years as a frontend developer, skilled in pixel-perfect design and seamless UX. Proficient in ReactJS, NextJS, Grommet UI, Tailwind, Chakra UI, Ant Design, Sass, TypeScript, JavaScript, HTML5, CSS3, GraphQL Client. Expertise in setting up frontend project deployment pipelines."            ',
         className: 'after_box top-left',
     },
     {

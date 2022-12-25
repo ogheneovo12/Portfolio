@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             container: {
-                center:true,
+                center: true,
                 padding: {
                     '2xl': '2rem',
                     DEFAULT: '1rem',
@@ -35,6 +35,6 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('tailwindcss-animation-delay')],
     important: true,
 };

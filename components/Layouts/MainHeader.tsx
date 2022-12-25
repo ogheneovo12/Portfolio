@@ -56,7 +56,7 @@ function MainHeader() {
     return (
         <header
             ref={headerRef}
-            className="flex fixed left-0 right-0 w-full top-0 z-[999] bg-secondary  items-center  min-h-[70px] py-10 text-white animate__fadeInDown wow animate__animated"
+            className="flex fixed left-0 right-0 w-full top-0 z-[999] bg-secondary  items-center  min-h-[70px] py-10 text-white animate__fadeInDown animate__animated"
         >
             <nav className="nav container flex justify-between items-center">
                 <div className="flex items-center space-x-3">

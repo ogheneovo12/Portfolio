@@ -65,7 +65,10 @@ function MainHeader() {
                 </div>
                 <div className="flex items-center">
                     <MenuStyle ref={ref} className="m-0 items-center md:space-x-10 ">
-                        <Button onClick={hideMobileMenu} className="md:hidden relative right-0  float-right text-white">
+                        <Button
+                            onClick={hideMobileMenu}
+                            className="md:hidden relative right-0  bg-transparent float-right text-white"
+                        >
                             <FaTimes />
                         </Button>
                         <li>

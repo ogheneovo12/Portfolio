@@ -12,6 +12,13 @@ export interface INotification {
     description?: string;
 }
 
+export interface IContactEmail {
+    fullname: string;
+    email: string;
+    subject: string;
+    message: string;
+}
+
 export type WithLayout = {
     layout?: React.FC<{ children: React.ReactNode }>;
 };

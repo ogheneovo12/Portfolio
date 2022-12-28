@@ -13,6 +13,10 @@
     img {
         display: inline-block;
     }
+
+    p {
+        margin-bottom: 0px;
+    }
 }
 
 @layer components {

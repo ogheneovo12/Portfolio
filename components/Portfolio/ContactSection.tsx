@@ -1,12 +1,58 @@
 import Container from 'components/Container';
 import Image from 'next/image';
 import React from 'react';
-import { Form, Formik } from 'formik';
-import FormItem from 'antd/lib/form/FormItem';
-import { Input } from 'antd';
-import TextArea from 'antd/lib/input/TextArea';
+import { Form, Formik, ErrorMessage, FormikHelpers } from 'formik';
+import { FormItem, Input as InputBare } from 'formik-antd';
+import { Button } from 'antd';
+import styled from '@emotion/styled';
+import * as Yup from 'yup';
+import { IContactEmail } from '@/common/types/interfaces';
+import helpers from '@/common/utils/helper';
+
+const Input = styled(InputBare)`
+    .ant-input {
+        background: transparent;
+        color: #fff;
+    }
+`;
+
+const validation = Yup.object().shape({
+    fullname: Yup.string().required('i would really love to know your name'),
+    email: Yup.string().email('email must be a valid email').required('email is required'),
+    subject: Yup.string().required('A brief summary of your message would help'),
+    message: Yup.string().required("don't be shy!!, tell me about the idea you've got in mind"),
+});
 
 function ContactSection() {
+    async function handleSubmit(value: IContactEmail, bag: FormikHelpers<IContactEmail>) {
+        bag.setSubmitting(true);
+        const res = await fetch('/api/sendgrid', {
+            body: JSON.stringify(value),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+        });
+
+        const { error } = await res.json();
+        bag.setSubmitting(false);
+        if (error) {
+            helpers.openNotification({
+                type: 'error',
+                message: 'Failed To Send Email',
+                description: error,
+            });
+
+            return;
+        } else {
+            helpers.openNotification({
+                type: 'success',
+                message: 'Message Succesfully Sent',
+                description: 'Your Message has been receieved, i will get back to you Asap!',
+            });
+            return;
+        }
+    }
     return (
         <Container id={'contact'} sectionClass="bg-[#1D172F]" containerClass="py-[30px]">
             <h2 className="section-title gradient-text mb-[107px] animate__animated wow animate__fadeIn">Contact </h2>
@@ -21,52 +67,73 @@ function ContactSection() {
                         <span className="font-semi-bold text-primary">ukuanovweogheneovo@gmail.com</span>
                     </p>
                     <Formik
+                        validationSchema={validation}
                         initialValues={{
-                            name: '',
+                            fullname: '',
                             email: '',
                             subject: '',
                             message: '',
                         }}
-                        onSubmit={() => {}}
+                        onSubmit={handleSubmit}
                     >
-                        <Form>
-                            <FormItem name="fullname">
-                                <Input
-                                    data-wow-duration=".5s"
-                                    className="bg-transparent h-[55px] animate__fadeInLeft wow animate__animated"
-                                    name="fullname"
-                                    placeholder="Your Name"
-                                />
-                            </FormItem>
-                            <FormItem name={'email'}>
-                                <Input
-                                    data-wow-duration=".5s"
-                                    data-wow-delay=".5s"
-                                    className="bg-transparent animate__fadeInLeft wow animate__animated h-[55px]"
-                                    name="email"
-                                    placeholder="Your Email*"
-                                />
-                            </FormItem>
-                            <FormItem name="subject">
-                                <Input
-                                    data-wow-duration=".5s"
-                                    data-wow-delay="1s"
-                                    className="bg-transparent h-[55px] animate__fadeInLeft wow animate__animated"
-                                    name="subject"
-                                    placeholder="write a subject"
-                                />
-                            </FormItem>
-                            <FormItem name="message">
-                                <TextArea
+                        {({ isValid, isSubmitting }) => (
+                            <Form>
+                                <FormItem name="fullname" className="mb-8">
+                                    <Input
+                                        suffix={<span className="bg-transparent" />}
+                                        data-wow-duration=".5s"
+                                        className="bg-transparent h-[55px] animate__fadeInLeft wow animate__animated"
+                                        name="fullname"
+                                        placeholder="Your Name"
+                                    />
+                                </FormItem>
+                                <FormItem name={'email'} className="mb-8">
+                                    <Input
+                                        suffix={<span className="bg-transparent" />}
+                                        data-wow-duration=".5s"
+                                        data-wow-delay=".5s"
+                                        className="bg-transparent animate__fadeInLeft wow animate__animated h-[55px]"
+                                        name="email"
+                                        placeholder="Your Email*"
+                                    />
+                                </FormItem>
+                                <FormItem name="subject" className="mb-8">
+                                    <Input
+                                        suffix={<span className="bg-transparent" />}
+                                        data-wow-duration=".5s"
+                                        data-wow-delay="1s"
+                                        className="bg-transparent h-[55px] animate__fadeInLeft wow animate__animated"
+                                        name="subject"
+                                        placeholder="write a subject"
+                                    />
+                                </FormItem>
+
+                                <InputBare.TextArea
+                                    showCount={false}
+                                    prefix=""
                                     data-wow-duration=".5s"
                                     data-wow-delay="1.5s"
                                     rows={7}
-                                    className="bg-transparent animate__fadeInUp wow animate__animated"
+                                    className="bg-transparent animate__fadeIn wow text-white"
                                     placeholder="your message"
                                     name="message"
                                 />
-                            </FormItem>
-                        </Form>
+                                <p className="ant-form-item-explain-error mb-4">
+                                    <ErrorMessage name="message" />
+                                </p>
+
+                                <Button
+                                    loading={isSubmitting}
+                                    disabled={!isValid}
+                                    data-wow-duration=".5s"
+                                    data-wow-delay="1.5s"
+                                    htmlType="submit"
+                                    className="max-w-[189px] w-full h-[56px] disabled:opacity-40 border-primary bg-primary text-white hover:bg-primary hover:text-white"
+                                >
+                                    Submit
+                                </Button>
+                            </Form>
+                        )}
                     </Formik>
                 </div>
                 <div className="flex w-full justify-center md:justify-end items-center">

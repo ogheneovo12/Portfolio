@@ -26,7 +26,7 @@ const validation = Yup.object().shape({
 function ContactSection() {
     async function handleSubmit(value: IContactEmail, bag: FormikHelpers<IContactEmail>) {
         bag.setSubmitting(true);
-        const res = await fetch('/api/sendgrid', {
+        const res = await fetch('/api/mailer', {
             body: JSON.stringify(value),
             headers: {
                 'Content-Type': 'application/json',

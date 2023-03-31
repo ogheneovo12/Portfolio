@@ -6,6 +6,17 @@ import React from 'react';
 
 const project: IProjectCardProps[] = [
     {
+        title: 'Bridge Africa',
+        actionLink: 'https://bridge.africa',
+        image: '/previews/bridge/1.png',
+        previewGroups: '/previews/bridge',
+        previewCount: 12,
+        type: 'Contract',
+        logo: 'https://www.bridge.africa/favicon.ico',
+        description:
+            "I played a key role in improving Bridge Africa's online presence by implementing their v2 business page, designing email templates, creating a visually appealing internal admin dashboard using APIs, and contributing to SEO improvements.",
+    },
+    {
         title: 'bitnautic',
         actionLink: 'https://bitnautic.com',
         image: '/previews/bitnautic/1.png',

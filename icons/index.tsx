@@ -6,7 +6,10 @@ export * from './components/BellIcon.react.svg';
 export * from './components/VaultIcon.react.svg';
 export * from './components/TransactionIcon.react.svg';
 export * from './components/CurrenciesIcon.react.svg';
-export * from "./components/coin.icons"
+export * from './components/GithubIcon.react.svg';
+export * from './components/LinkedInIcon.react.svg';
+export * from './components/TwitterIcon.react.svg';
+export * from './components/coin.icons';
 
 export const greenLine = () => (
     <svg width="1121" height="474" viewBox="0 0 1121 474" fill="none" xmlns="http://www.w3.org/2000/svg">

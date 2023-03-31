@@ -8,9 +8,10 @@ export interface IProjectCardProps {
     description?: string;
     actionLink?: string;
     image: string;
-    previewGroups?: string[];
+    previewGroups?: string[] | string; //files must be png if the base preview path is used
     logo?: string;
     type: ProjectType;
+    previewCount?: number;
 }
 
 const { Meta } = Card;
@@ -29,8 +30,28 @@ const colorMap: Record<ProjectType, string> = {
     Personal: 'gold',
     Fulltime: 'green',
 };
-function ProjectCard({ title, image, actionLink, previewGroups, logo, type, description }: IProjectCardProps) {
+
+function ProjectCard({
+    title,
+    image,
+    actionLink,
+    previewGroups,
+    logo,
+    type,
+    description,
+    previewCount,
+}: IProjectCardProps) {
     const [visible, setVisible] = useState(false);
+
+    const previewImages = React.useMemo(() => {
+        if (!previewGroups) return null;
+        if (Array.isArray(previewGroups)) return previewGroups;
+        if (typeof previewGroups === 'string') {
+            if (!previewCount) return null;
+            return Array.from(new Array(previewCount).keys()).map((k) => `${previewGroups}/${k + 1}.png`);
+        }
+    }, [previewGroups, previewCount]);
+
     return (
         <Badge.Ribbon placement="start" text={type} color={colorMap[type]}>
             <StyledCard
@@ -50,10 +71,10 @@ function ProjectCard({ title, image, actionLink, previewGroups, logo, type, desc
             >
                 <Meta className="text-white" avatar={<Avatar src={logo} />} title={title} description={description} />
 
-                {previewGroups && (
+                {previewImages && (
                     <div style={{ display: 'none' }}>
                         <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
-                            {previewGroups?.map((prev_url, i) => (
+                            {previewImages?.map((prev_url, i) => (
                                 <Image key={`${title}_${prev_url}_${i}`} src={prev_url} alt={`${title} preview ${i}`} />
                             ))}
                         </Image.PreviewGroup>

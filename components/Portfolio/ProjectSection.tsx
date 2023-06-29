@@ -6,6 +6,39 @@ import React from 'react';
 
 const project: IProjectCardProps[] = [
     {
+        title: 'OptionUp',
+        actionLink: 'https://optionup.netlify.app/',
+        image: '/previews/optionup/1.png',
+        previewGroups: '/previews/optionup',
+        previewCount: 4,
+        type: 'Contract',
+        logo: 'https://optionup.netlify.app/favicon.ico',
+        description:
+            "Achieved pixel-perfect implementation of OptionUp's design interface, leading the implementation of key features like Google authentication, Stripe integration, refresh token strategy, MDX-based static site generation, and data tables, while effectively utilizing API consumption and implementing Redux and Redux Toolkit for business logic, and developing a custom persistence storage solution to enhance platform performance and functionality.",
+    },
+    {
+        title: 'ThinkMusik',
+        actionLink: 'https://www.thinkmusik.com/',
+        image: '/previews/thinkmusik/1.png',
+        previewGroups: '/previews/thinkmusik',
+        previewCount: 5,
+        type: 'Contract',
+        logo: 'https://www.thinkmusik.com/favicon.png',
+        description:
+            'Successfully implemented a pixel-perfect Thinkmusik waiting list 5-page website design, integrated Google Firebase Analytics Tracking, Google Firestore for user data storage, and leveraging the latest features of Next.js 13 for improved functionality and user experience.',
+    },
+    {
+        title: 'Project744',
+        actionLink: 'https://www.project774.ng/',
+        image: '/previews/project744/1.png',
+        previewGroups: '/previews/project744',
+        previewCount: 2,
+        type: 'Volunteer',
+        logo: 'https://www.project774.ng/favicon.ico',
+        description:
+            'Successfully collaborated with other volunteers to implement the revamped Project 774 website and integrated an MDX-based static site generation for event lists and page details, eliminating the need for an extra API server.',
+    },
+    {
         title: 'Bridge Africa',
         actionLink: 'https://bridge.africa',
         image: '/previews/bridge/1.png',
@@ -92,12 +125,12 @@ const project: IProjectCardProps[] = [
 function Projects() {
     return (
         <Container
-            id="projects"
+            id="works"
             containerClass="py-10 px-[30px]"
             sectionClass="flex flex-col justify-center items-center md:min-h-screen min-h-[670px]"
         >
             <h2 className="section-title text-center gradient-text mb-[107px] animate__animated wow animate__fadeIn">
-                My Projects
+                My Works
             </h2>
             <Row gutter={[24, 24]}>
                 {project?.map((item) => (

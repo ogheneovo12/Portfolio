@@ -2,7 +2,7 @@ import { Avatar, Badge, Button, Card, Image } from 'antd';
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-type ProjectType = 'Contract' | 'Personal' | 'Fulltime';
+type ProjectType = 'Contract' | 'Personal' | 'Fulltime' | 'Volunteer';
 export interface IProjectCardProps {
     title: string;
     description?: string;
@@ -29,6 +29,7 @@ const colorMap: Record<ProjectType, string> = {
     Contract: 'geekblue',
     Personal: 'gold',
     Fulltime: 'green',
+    Volunteer: 'orange',
 };
 
 function ProjectCard({

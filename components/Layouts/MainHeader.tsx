@@ -92,12 +92,12 @@ function MainHeader() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#projects">
+                            <Link href="/#works">
                                 <span
                                     className="hover:text-primary active:bg-primary cursor-pointer"
                                     onClick={hideMobileMenu}
                                 >
-                                    Projects
+                                    my works
                                 </span>
                             </Link>
                         </li>

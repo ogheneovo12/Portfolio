@@ -56,7 +56,13 @@ function ProjectCard({
     return (
         <Badge.Ribbon placement="start" text={type} color={colorMap[type]}>
             <StyledCard
-                extra={<Button href={actionLink}>Visit</Button>}
+                extra={
+                    actionLink ? (
+                        <Button target="_blank" href={actionLink}>
+                            Visit
+                        </Button>
+                    ) : null
+                }
                 cover={
                     <Image
                         preview={{ visible: false }}

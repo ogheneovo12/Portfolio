@@ -7,25 +7,30 @@ import React from 'react';
 const project: IProjectCardProps[] = [
     {
         title: 'OptionUp',
-        actionLink: 'https://optionup.netlify.app/',
+        actionLink: 'https://optionupapp.com/',
         image: '/previews/optionup/1.png',
         previewGroups: '/previews/optionup',
         previewCount: 4,
         type: 'Contract',
         logo: 'https://optionup.netlify.app/favicon.ico',
-        description:
-            "Achieved pixel-perfect implementation of OptionUp's design interface, leading the implementation of key features like Google authentication, Stripe integration, refresh token strategy, MDX-based static site generation, and data tables, while effectively utilizing API consumption and implementing Redux and Redux Toolkit for business logic, and developing a custom persistence storage solution to enhance platform performance and functionality.",
+        description: `● Implemented key features, including Google authentication, Stripe subscription integration, refresh token
+            authentication, MDX-based static site generation, and data tables.
+            ● Meticulously executed OptionUp's design interface, proficiently leveraged API consumption, and applied
+            business logic via Redux and Redux Toolkit resulting in improved key performance metrics`,
     },
     {
         title: 'ThinkMusik',
         actionLink: 'https://www.thinkmusik.com/',
         image: '/previews/thinkmusik/1.png',
         previewGroups: '/previews/thinkmusik',
-        previewCount: 5,
+        previewCount: 11,
         type: 'Contract',
         logo: 'https://www.thinkmusik.com/favicon.png',
-        description:
-            'Successfully implemented a pixel-perfect Thinkmusik waiting list 5-page website design, integrated Google Firebase Analytics Tracking, Google Firestore for user data storage, and leveraging the latest features of Next.js 13 for improved functionality and user experience.',
+        description: `Developed and maintained the ThinkMusik Learning Course Platform with a focus on performance,
+            usability, and accessibility.
+            ● Created ThinkMusik's Waitlist Pages within an expedited four-day timeline, utilizing Firebase Firestore
+            for waitlist data storage and implementing Firebase analytics to track user interactions. This effort led to a
+            significant boost in user engagement.`,
     },
     {
         title: 'Project744',
@@ -61,7 +66,7 @@ const project: IProjectCardProps[] = [
     },
     {
         title: 'Fitted Groups',
-        actionLink: 'https://groups.fitted.ng',
+        actionLink: '',
         image: '/previews/groups/1.png',
         previewGroups: [
             '/previews/groups/1.png',
@@ -94,7 +99,7 @@ const project: IProjectCardProps[] = [
     },
     {
         title: 'Fitted Store Setup',
-        actionLink: 'shop.fitted.ng',
+        actionLink: 'store.fitted.ng',
         image: '/previews/store/1.png',
         previewGroups: ["/previews/store/1.png',"],
         logo: '/previews/groups/logo.webp',
@@ -104,7 +109,7 @@ const project: IProjectCardProps[] = [
     },
     {
         title: 'Easyshare Africa',
-        actionLink: 'https://easyshare.africa/',
+        actionLink: '',
         image: '/previews/easyshare/1.png',
         previewGroups: ['/previews/easyshare/1.png', '/previews/easyshare/2.png', '/previews/easyshare/3.png'],
         type: 'Fulltime',
@@ -113,7 +118,7 @@ const project: IProjectCardProps[] = [
     },
     {
         title: 'Dev Jobs',
-        actionLink: 'https://coderjobs.netlify.app/',
+        actionLink: 'https://devjobs.shadesofcodes.com/',
         image: '/previews/devjobs/1.png',
         previewGroups: ['/previews/devjobs/1.png', '/previews/devjobs/2.png', '/previews/devjobs/3.png'],
         type: 'Personal',
